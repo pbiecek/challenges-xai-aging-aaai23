@@ -1,2 +1,16 @@
-# challenges-xai-aging-aaai23
-Supplementary materials to "Challenges facing the explainability of age prediction models: case study for two modalities"
+# Challenges facing the explainability of age prediction models: case study for two modalities
+
+**Supplementary materials**
+
+## EEG
+
+### Model
+
+### Sample data for inference
+
+## xray
+
+### Model
+
+### Sample data for inference
+
