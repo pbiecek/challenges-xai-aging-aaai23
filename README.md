@@ -6,9 +6,41 @@ by [Mikolaj Spytek](https://github.com/mikolajsp), [Weronika Hryniewska](https:/
 
 ## EEG
 
-### Model
+### Models
+
+- [Linear Regression Model](./EEG/LinearRegression.obj)
+- [Multi Layer Perceptron](./EEG/MultiLayerPerceptron.obj)
 
 ### Sample data for inference
+- [10 sample EEG Recordings](./EEG/sample_data.csv)
+
+### Code example
+
+```python
+import pickle
+import pandas as pd
+
+from sklearn.linear_model import LinearRegression
+from sklearn.neural_network import MLPRegressor
+
+
+data = pd.read_csv("sample_data.csv", index_col=0)
+
+X = data.iloc[:, 1:].values
+y = data.iloc[:, 0].values
+
+with open("LinearRegression.obj", "rb") as f:
+    linreg = pickle.load(f)
+
+with open("MultiLayerPerceptron.obj", "rb") as f:
+    mlp = pickle.load(f)
+
+
+prediction_linreg = linreg.predict(X)
+prediction_mlp = mlp.predict(X)
+```
+
+
 
 ## xray
 
