@@ -50,4 +50,29 @@ prediction_mlp = mlp.predict(X)
 - [Catboost Regression Model](./X-ray/model_catboost_regressor.json)
 
 ### Sample data for inference
+- [sample X-ray embeddings](./X-ray/sample_data_xray.csv)
 
+### Code example
+
+```python
+import joblib
+import pandas as pd
+
+import xgboost as xgb
+from catboost import CatBoostRegressor
+
+data = pd.read_csv("sample_data_xray.csv")
+
+X = data.iloc[:, 3:].values
+y = data.iloc[:, 2].values
+
+xgb = xgb.XGBRegressor()
+xgb.load_model("model_xgb_regressor.json")
+
+with open("model_catboost_regressor.json", "rb") as f:
+    cat = joblib.load(f)
+
+prediction_xgb = xgb.predict(X)
+prediction_cat = cat.predict(X)
+
+```
