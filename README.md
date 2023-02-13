@@ -42,9 +42,12 @@ prediction_mlp = mlp.predict(X)
 
 
 
-## xray
+## X-ray
 
 ### Model
+
+- [XGBoost Regression Model](./X-ray/model_xgb_regressor.json)
+- [Catboost Regression Model](./X-ray/model_catboost_regressor.json)
 
 ### Sample data for inference
 
